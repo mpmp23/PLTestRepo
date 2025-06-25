@@ -15,7 +15,7 @@
 
 ## Problem
 - I lack vram - need azure openai api key. better than using on ollama. I can't really process anything. azure openai - need access to generate better compute power.
-
+- The main blocker is VRAM - hence the need for either azure OpenAI (for both 1. Better cypher generation and 2. Querying) or more VRAM with GPUs on AWS (renting vms that the firm owns) to run a local model (just like ollama but API access)
 
 # Specific Setup Instructions
 ## to add in new information for now
@@ -47,4 +47,3 @@ DETACH DELETE n
 ## LLM Used
 - Locally hosted Ollama LLM (gemma3:4b-it-qat)
 - Azure's API use instead of local ollama? (for more parameters)
-
