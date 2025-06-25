@@ -7,7 +7,17 @@
 3. docker run -d --name neo4j-gds-new -p 7474:7474 -p 7687:7687 -e NEO4J_AUTH=neo4j/testpass neo4j-gds-custom
 4. python ingest_case.py
 
+# General Explanation
+- This functions as an in-house Relativity competitor.
+- GraphRAG is a way to enrich the context of any query using a graph data structure. Neo4j uses llms to generate cypher to be inserted. In order to generate the best 'links' and context for each case, we need a better model (where Azure API comes in).
+- This model doesn't use memory - each query pulls from the same database-created 'context graph' to derive its answer.
 
+
+## Problem
+- I lack vram - need azure openai api key. better than using on ollama. I can't really process anything. azure openai - need access to generate better compute power.
+
+
+# Specific Setup Instructions
 ## to add in new information for now
 - drag in files you want it to ingest -- i used https://github.com/BlairStanek/BLT/blob/master/RawData/Transcripts/Karin%20Lang%20deposition.txt and https://www.courtlistener.com/docket/17044058/625/delta-air-lines-inc-v-marriott-international-inc/
 
@@ -38,11 +48,3 @@ DETACH DELETE n
 - Locally hosted Ollama LLM (gemma3:4b-it-qat)
 - Azure's API use instead of local ollama? (for more parameters)
 
-# Explanation
-- This functions as an in-house Relativity competitor.
-- GraphRAG is a way to enrich the context of any query using a graph data structure. Neo4j uses llms to generate cypher to be inserted. In order to generate the best 'links' and context for each case, we need a better model (where Azure API comes in).
-- This model doesn't use memory - each query pulls from the same database-created 'context graph' to derive its answer.
-
-
-## Problem
-- i lack vram - need azure openai api key. better than using on ollama. i can't really process anything. azure openai - need access to generate better compute power.
