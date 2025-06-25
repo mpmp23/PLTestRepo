@@ -155,7 +155,7 @@ def run_query(user_prompt: str) -> str:
     """
     deposition_suffix = (
         "\nYou are analyzing a legal deposition transcript. "
-        "Summarize key witness statements, extract facts and events, and list follow-up questions in 5-6 bullet points."
+        "Understand key witness statements, extract facts and events, and summarize."
     )
     final_prompt = user_prompt + deposition_suffix
     return graph_func.query(final_prompt, param=QueryParam(mode="local"))
@@ -167,5 +167,5 @@ if __name__ == "__main__":
     output_directory = os.getenv("OUTPUT_DIR", "./deposition_info/deposition_graphs")
     process_documents(input_directory, output_directory)
     # Example deposition query
-    example_prompt = "What part of Yancy's testimony don't add up?."
+    example_prompt = "Give me quick details of this transcript."
     print("\n\n\nDeposition Analysis:", run_query(example_prompt))
